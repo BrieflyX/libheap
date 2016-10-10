@@ -626,22 +626,22 @@ class malloc_state:
         return "%s%s%x%s%x%s%s%lx%s%lx%s%s%s%lx%s%lx%s%lx%s" %      \
                 (c_title + "struct malloc_state {",                 \
                 c_none + "\nmutex          = " + c_value + "0x",    \
-                self.mutex,                                         \
+                int(self.mutex),                                    \
                 c_none + "\nflags          = " + c_value + "0x",    \
-                self.flags,                                         \
+                int(self.flags),                                    \
                 c_none + "\nfastbinsY      = " + c_value + "{...}", \
                 c_none + "\ntop            = " + c_value + "0x",    \
-                self.top,                                           \
+                int(self.top),                                      \
                 c_none + "\nlast_remainder = " + c_value + "0x",    \
-                self.last_remainder,                                \
+                int(self.last_remainder),                           \
                 c_none + "\nbins           = " + c_value + "{...}", \
                 c_none + "\nbinmap         = " + c_value + "{...}", \
                 c_none + "\nnext           = " + c_value + "0x",    \
-                self.next,                                          \
+                int(self.next),                                     \
                 c_none + "\nsystem_mem     = " + c_value + "0x",    \
-                self.system_mem,                                    \
+                int(self.system_mem),                               \
                 c_none + "\nmax_system_mem = " + c_value + "0x",    \
-                self.max_system_mem, c_none)
+                int(self.max_system_mem), c_none)
 
 
 ################################################################################
@@ -736,31 +736,31 @@ class malloc_par:
         return "%s%s%lx%s%lx%s%lx%s%x%s%x%s%x%s%x%s%lx%s%lx%s%lx%s%lx%s" % \
                 (c_title + "struct malloc_par {",                  \
                 c_none + "\ntrim_threshold   = " + c_value + "0x", \
-                self.trim_threshold,                               \
+                int(self.trim_threshold),                          \
                 c_none + "\ntop_pad          = " + c_value + "0x", \
-                self.top_pad,                                      \
+                int(self.top_pad),                                 \
                 c_none + "\nmmap_threshold   = " + c_value + "0x", \
-                self.mmap_threshold,                               \
+                int(self.mmap_threshold),                          \
                 c_none + "\narena_test       = " + c_value + "0x", \
-                self.arena_test,                                   \
+                int(self.arena_test),                              \
                 c_none + "\narena_max        = " + c_value + "0x", \
-                self.arena_max,                                    \
+                int(self.arena_max),                               \
                 c_none + "\nn_mmaps          = " + c_value + "0x", \
-                self.n_mmaps,                                      \
+                int(self.n_mmaps),                                 \
                 c_none + "\nn_mmaps_max      = " + c_value + "0x", \
-                self.n_mmaps_max,                                  \
+                int(self.n_mmaps_max),                             \
                 c_none + "\nmax_n_mmaps      = " + c_value + "0x", \
-                self.max_n_mmaps,                                  \
+                int(self.max_n_mmaps),                             \
                 c_none + "\nno_dyn_threshold = " + c_value + "0x", \
-                self.no_dyn_threshold,                             \
+                int(self.no_dyn_threshold),                        \
                 c_none + "\nmmapped_mem      = " + c_value + "0x", \
-                self.mmapped_mem,                                  \
+                int(self.mmapped_mem),                             \
                 c_none + "\nmax_mmapped_mem  = " + c_value + "0x", \
-                self.max_mmapped_mem,                              \
+                int(self.max_mmapped_mem),                         \
                 c_none + "\nmax_total_mem    = " + c_value + "0x", \
-                self.max_total_mem,                                \
+                int(self.max_total_mem),                           \
                 c_none + "\nsbrk_base        = " + c_value + "0x", \
-                self.sbrk_base,                                    \
+                int(self.sbrk_base),                               \
                 c_none)
 
 
@@ -794,27 +794,27 @@ class malloc_par_printer:
         return "%s%s%lx%s%lx%s%lx%s%x%s%x%s%x%s%x%s%lx%s%lx%s%lx%s%lx%s" % \
                 (c_title + "struct malloc_par {",                  \
                 c_none + "\ntrim_threshold   = " + c_value + "0x", \
-                self.val['trim_threshold'],                        \
+                int(self.val['trim_threshold']),                   \
                 c_none + "\ntop_pad          = " + c_value + "0x", \
-                self.val['top_pad'],                               \
+                int(self.val['top_pad']),                          \
                 c_none + "\nmmap_threshold   = " + c_value + "0x", \
-                self.val['mmap_threshold'],                        \
+                int(self.val['mmap_threshold']),                   \
                 c_none + "\nn_mmaps          = " + c_value + "0x", \
-                self.val['n_mmaps'],                               \
+                int(self.val['n_mmaps']),                          \
                 c_none + "\nn_mmaps_max      = " + c_value + "0x", \
-                self.val['n_mmaps_max'],                           \
+                int(self.val['n_mmaps_max']),                      \
                 c_none + "\nmax_n_mmaps      = " + c_value + "0x", \
-                self.val['max_n_mmaps'],                           \
+                int(self.val['max_n_mmaps']),                      \
                 c_none + "\nno_dyn_threshold = " + c_value + "0x", \
-                self.val['no_dyn_threshold'],                      \
+                int(self.val['no_dyn_threshold']),                 \
                 c_none + "\nmmapped_mem      = " + c_value + "0x", \
-                self.val['mmapped_mem'],                           \
+                int(self.val['mmapped_mem']),                      \
                 c_none + "\nmax_mmapped_mem  = " + c_value + "0x", \
-                self.val['max_mmapped_mem'],                       \
+                int(self.val['max_mmapped_mem']),                  \
                 c_none + "\nmax_total_mem    = " + c_value + "0x", \
-                self.val['max_total_mem'],                         \
+                int(self.val['max_total_mem']),                    \
                 c_none + "\nsbrk_base        = " + c_value + "0x", \
-                self.val['sbrk_base'],                             \
+                int(self.val['sbrk_base']),                        \
                 c_none)
 
     def display_string(self):
@@ -831,22 +831,22 @@ class malloc_state_printer:
         return "%s%s%x%s%x%s%s%lx%s%lx%s%s%s%lx%s%lx%s%lx%s" %      \
                 (c_title + "struct malloc_state {",                 \
                 c_none + "\nmutex          = " + c_value + "0x",    \
-                self.val['mutex'],                                  \
+                int(self.val['mutex']),                             \
                 c_none + "\nflags          = " + c_value + "0x",    \
-                self.val['flags'],                                  \
+                int(self.val['flags']),                             \
                 c_none + "\nfastbinsY      = " + c_value + "{...}", \
                 c_none + "\ntop            = " + c_value + "0x",    \
-                self.val['top'],                                    \
+                int(self.val['top']),                               \
                 c_none + "\nlast_remainder = " + c_value + "0x",    \
-                self.val['last_remainder'],                         \
+                int(self.val['last_remainder']),                    \
                 c_none + "\nbins           = " + c_value + "{...}", \
                 c_none + "\nbinmap         = " + c_value + "{...}", \
                 c_none + "\nnext           = " + c_value + "0x",    \
-                self.val['next'],                                   \
+                int(self.val['next']),                              \
                 c_none + "\nsystem_mem     = " + c_value + "0x",    \
-                self.val['system_mem'],                             \
+                int(self.val['system_mem']),                        \
                 c_none + "\nmax_system_mem = " + c_value + "0x",    \
-                self.val['max_system_mem'],                         \
+                int(self.val['max_system_mem']),                    \
                 c_none)
 
     def display_string(self):
@@ -863,17 +863,17 @@ class malloc_chunk_printer:
         return "%s%s%x%s%x%s%lx%s%lx%s%lx%s%lx%s" %           \
                 (c_title + "struct malloc_chunk {",           \
                 c_none + "\nprev_size   = " + c_value + "0x", \
-                self.val['prev_size'],                        \
+                int(self.val['prev_size']),                   \
                 c_none + "\nsize        = " + c_value + "0x", \
-                self.val['size'],                             \
+                int(self.val['size']),                        \
                 c_none + "\nfd          = " + c_value + "0x", \
-                self.val['fd'],                               \
+                int(self.val['fd']),                          \
                 c_none + "\nbk          = " + c_value + "0x", \
-                self.val['bk'],                               \
+                int(self.val['bk']),                          \
                 c_none + "\nfd_nextsize = " + c_value + "0x", \
-                self.val['fd_nextsize'],                      \
+                int(self.val['fd_nextsize']),                 \
                 c_none + "\nbk_nextsize = " + c_value + "0x", \
-                self.val['bk_nextsize'],                      \
+                int(self.val['bk_nextsize']),                 \
                 c_none)
 
     def display_string(self):
@@ -890,13 +890,13 @@ class heap_info_printer:
         return "%s%s%lx%s%lx%s%lx%s%lx%s" %                     \
                 (c_title + "struct heap_info {",                \
                 c_none + "\nar_ptr        = " + c_value + "0x", \
-                self.val['ar_ptr'],                             \
+                int(self.val['ar_ptr']),                        \
                 c_none + "\nprev          = " + c_value + "0x", \
-                self.val['prev'],                               \
+                int(self.val['prev']),                          \
                 c_none + "\nsize          = " + c_value + "0x", \
-                self.val['size'],                               \
+                int(self.val['size']),                          \
                 c_none + "\nmprotect_size = " + c_value + "0x", \
-                self.val['mprotect_size'],                      \
+                int(self.val['mprotect_size']),                 \
                 c_none)
 
     def display_string(self):
@@ -1332,7 +1332,7 @@ def print_fastbins(inferior, fb_base, fb_num):
             return
 
         print("%s%s%d%s%s0x%08lx%s%s%s0x%08lx%s%s" % \
-                (c_header,"[ fb  ",fb," ] ",c_none,offset,\
+                (c_header,"[ fb  ",int(fb)," ] ",c_none,int(offset),\
                  " -> ",c_value,"[ ",fd," ]",c_none), end=' ')
 
         if fd == 0: #fastbin is empty
@@ -1344,7 +1344,7 @@ def print_fastbins(inferior, fb_base, fb_num):
             while chunk.fd != 0:
                 if chunk.fd is None:   # could not read memory section
                     break
-                print("%s%26s0x%08lx%s%s(%d)" % (c_value,"[ ",chunk.fd," ] ",c_none, fb_size))
+                print("%s%26s0x%08lx%s%s(%d)" % (c_value,"[ ",int(chunk.fd)," ] ",c_none, int(fb_size)))
                 chunk = malloc_chunk(chunk.fd, inuse=False)
 
         if fb_num != None: #only print one fastbin
@@ -1374,8 +1374,8 @@ def print_smallbins(inferior, sb_base, sb_num):
             return
 
         print("%s%s%02d%s%s0x%08lx%s%s%s0x%08lx%s0x%08lx%s%s" % \
-                            (c_header,"[ sb ",sb/2," ] ",c_none,offset, \
-                            " -> ",c_value,"[ ", fd, " | ", bk, " ] ",  \
+                            (c_header,"[ sb ",int(sb/2)," ] ",c_none,offset, \
+                            " -> ",c_value,"[ ", int(fd), " | ", int(bk), " ] ",  \
                             c_none))
 
         while (1):
@@ -1384,7 +1384,7 @@ def print_smallbins(inferior, sb_base, sb_num):
 
             chunk = malloc_chunk(fd, inuse=False)
             print("%s%26s0x%08lx%s0x%08lx%s%s" % \
-                    (c_value,"[ ",chunk.fd," | ",chunk.bk," ] ",c_none), end=' ')
+                    (c_value,"[ ",int(chunk.fd)," | ",int(chunk.bk)," ] ",c_none), end=' ')
             print("(%d)" % chunksize(chunk))
 
             fd = chunk.fd
@@ -1411,11 +1411,11 @@ def print_bins(inferior, fb_base, sb_base):
             if print_once:
                 print_once = False
                 print(c_header + "  fast bin %d   @ 0x%lx" % \
-                        (fb,p.fd) + c_none)
-            print("    free chunk @ " + c_value + "0x%lx" % p.fd + c_none + \
+                        (int(fb),int(p.fd)) + c_none)
+            print("    free chunk @ " + c_value + "0x%lx" % int(p.fd) + c_none + \
                   " - size" + c_value, end=' ')
             p = malloc_chunk(p.fd, inuse=False)
-            print("0x%lx" % chunksize(p) + c_none)
+            print("0x%lx" % int(chunksize(p)) + c_none)
 
     for i in range(1, NBINS):
         print_once = True
@@ -1428,23 +1428,23 @@ def print_bins(inferior, fb_base, sb_base):
                 if i==1:
                     try:
                         print(c_header + "  unsorted bin @ 0x%lx" % \
-                          (b.cast(gdb.lookup_type("unsigned long")) \
+                          int(b.cast(gdb.lookup_type("unsigned long")) \
                           + 2*SIZE_SZ) + c_none)
                     except:
                         print(c_header + "  unsorted bin @ 0x%lx" % \
-                          (b + 2*SIZE_SZ) + c_none)
+                          int(b + 2*SIZE_SZ) + c_none)
                 else:
                     try:
                         print(c_header + "  small bin %d @ 0x%lx" %  \
-                         (i,b.cast(gdb.lookup_type("unsigned long")) \
-                         + 2*SIZE_SZ) + c_none)
+                         (i,int(b.cast(gdb.lookup_type("unsigned long")) \
+                         + 2*SIZE_SZ)) + c_none)
                     except:
                         print(c_header + "  small bin %d @ 0x%lx" % \
-                         (i,b + 2*SIZE_SZ) + c_none)
+                         (i,int(b + 2*SIZE_SZ)) + c_none)
 
             print(c_none + "    free_chunk @ " + c_value \
-                  + "0x%lx " % p.address + c_none        \
-                  + "- size " + c_value + "0x%lx" % chunksize(p) + c_none)
+                  + "0x%lx " % int(p.address) + c_none        \
+                  + "- size " + c_value + "0x%lx" % int(chunksize(p)) + c_none)
 
             p = malloc_chunk(first(p), inuse=False)
 
