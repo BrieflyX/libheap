@@ -1370,11 +1370,11 @@ def print_smallbins(inferior, sb_base, sb_num):
             elif SIZE_SZ == 8:
                 fd,bk = struct.unpack("<QQ", mem)
         except RuntimeError:
-            print(c_error + " ERROR: Invalid sb addr 0x%lx" % offset + c_none)
+            print(c_error + " ERROR: Invalid sb addr 0x%lx" % int(offset) + c_none)
             return
 
         print("%s%s%02d%s%s0x%08lx%s%s%s0x%08lx%s0x%08lx%s%s" % \
-                            (c_header,"[ sb ",int(sb/2)," ] ",c_none,offset, \
+                            (c_header,"[ sb ",int(sb/2)," ] ",c_none,int(offset), \
                             " -> ",c_value,"[ ", int(fd), " | ", int(bk), " ] ",  \
                             c_none))
 
